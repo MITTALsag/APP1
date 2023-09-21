@@ -33,7 +33,7 @@ int main() {
     printf (YEL "Réponse du serveur: ");
     printf(WHT "%s\n", reponse);
 
-    envoyer_recevoir("load TUTORIEL", reponse);
+    envoyer_recevoir("load tutorielFORT", reponse);
     printf (YEL "Réponse du serveur: ");
     printf(WHT "%s\n", reponse);
         

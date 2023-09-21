@@ -1,8 +1,10 @@
 #include "decalage_de_cesar.h"
+
+
 /*
- *  Auteur(s) :
+ *  Auteur(s) : Sagar MITTAL
  *  Date :
- *
+ * ce fichier est un peu different du .c de decalage_Cesar dans le dossier parent (celuici prend un tableau pour decrypter alors que l'autre prend un fichier)
  */
 
 #define MAX 1000
@@ -43,15 +45,6 @@ void decaln(char lettreLue, int n){
 
 }
 
-/*
-void teste_decaln(int n){
-    char lettreLue;
-    printf ("Donner une lettre \n");
-    scanf ("%c",&lettreLue);
-    decaln(lettreLue, n);
-
-}
-*/
 
 void afficher_txt_secret(char* tab, int n){
     int i = 0;

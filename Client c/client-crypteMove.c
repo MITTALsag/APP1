@@ -29,12 +29,12 @@ int main() {
     //printf(WHT "%s\n", reponse.tab);
 
     envoyer_recevoir("load crypteMove", reponse.tab);
-    //printf (YEL "Réponse du serveur: ");
-    //printf(WHT "%s\n", reponse.tab);
+    printf (YEL "Réponse du serveur: ");
+    printf(WHT "%s\n", reponse.tab);
         
     envoyer_recevoir("help", reponse.tab); // on envoie message, et on reçoit la réponse du serveur
-    //printf (YEL "Réponse du serveur: ");
-    //printf(WHT "%s\n", reponse.tab);
+    printf (YEL "Réponse du serveur: ");
+    printf(WHT "%s\n", reponse.tab);
 
     reponse.longueur = strlen(reponse.tab);
     char tmp[100];

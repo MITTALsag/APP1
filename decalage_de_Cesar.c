@@ -34,15 +34,6 @@ void decaln(char lettreLue, int n){
 
 }
 
-/*
-void teste_decaln(int n){
-    char lettreLue;
-    printf ("Donner une lettre \n");
-    scanf ("%c",&lettreLue);
-    decaln(lettreLue, n);
-
-}
-*/
 
 void afficher_txt_secret(FILE *f, int n){
     char c;
@@ -53,7 +44,7 @@ void afficher_txt_secret(FILE *f, int n){
     }
 }
 
-int decalCésar (int argc, char* argv[])
+int main (int argc, char* argv[])
 {   int n;
     printf("entrer n : ");
     scanf("%d", &n);
