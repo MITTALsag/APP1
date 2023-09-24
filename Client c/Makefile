@@ -4,6 +4,9 @@ CFLAGS=-g -Wall -Wextra -Werror
 EXEC=client-introduction client-tutoriel client-interactif client-TUTORIEL2 client-crypteMove client-BayOfPigs client-crypteSeq client-projetX client-planB client-test client-Northwoods client-OneMillion client-LostCause
 
 all: $(EXEC)
+test: test
+
+test : test.o encrypte_decrypte.o
 
 client-test : client-test.o client.o decalage_de_cesar.o encrypte_decrypte.o
 
@@ -42,4 +45,4 @@ clean:
 	rm -f *.o
 
 clear:
-	rm -f $(EXEC)
+	rm -f $(EXEC) test

@@ -79,24 +79,22 @@ void encrypte(sequence* txt, sequence* enc){
         printf("ENC : ");
         affiche(enc);
         printf("C : %c\n\n", c);
-
     */
-
+    
         //on met le premier element de txt a la fin de enc (1ere etape)
         enc->tab[enc->longueur] = c;
         enc->longueur++;
-
-        if (x > txt->longueur-1){ //si x est plus grand que le nb d'element dans la sequance txt
+        if (x > txt->longueur-1){ //si x est plus grand que le nb d'element dans la sequance txt on decal que de 1
             decal_vers_gauche(txt, 1);
         }
-        else {
+        else {      //sinon on met les x premier element de txt a la fin de txt
             int i = 1;
             for (int j = 0 ; j < x ; j++){
                 txt->tab[txt->longueur] = txt->tab[i];
                 txt->longueur++;
                 i++;
             }
-            decal_vers_gauche(txt, x+1);
+            decal_vers_gauche(txt, x+1); //on decal de x+1 (le +1 est pour eliminer le caractere lu dans c)
         }
     }
 }
