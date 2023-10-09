@@ -1,20 +1,7 @@
 #include "encrypte_decrypte.h"
 
 
-/*
-void init_txt(FILE* fich, sequence* seq){
-    int i = 0;
-    char car;
-    fscanf(fich, "%c", &car);
-    while (!feof(fich)){
-        seq->tab[i] = car;
-        seq->longueur++;
-        i++;
-        fscanf(fich, "%c", &car);
-    }
 
-}
-*/
 
 void init_seq(sequence* seq, int LMAX){
     seq->tab = (char *)malloc(LMAX * sizeof(char));
@@ -24,10 +11,6 @@ void init_seq(sequence* seq, int LMAX){
 void affiche(sequence* seq){
     for (int i = 0 ; i < seq->longueur ; i++){
         printf("%c", seq->tab[i]);
-        /* test pour voir les '\n' sans qu'ils soit ecrit
-        if (seq->tab[i] == '\n'){printf("\'\\n\'");}
-        else {printf("%c", seq->tab[i]);}
-        */
     }
     printf("\n");
 }
@@ -105,7 +88,6 @@ void decrypte(sequence* txt, sequence* enc){
     txt->longueur=0;
     //int i = 1; //Pour voir le nb de tours de boucle
     while (enc->longueur != 0){
-        //printf("%d\n", i);    //Pour voir le nb de tours de boucle
         //initialisation de x et c comme dans l'enonce
         char c = enc->tab[enc->longueur-1];
         int x = c % 8;
@@ -135,7 +117,6 @@ void decrypte(sequence* txt, sequence* enc){
             txt->longueur++;
             enc->longueur--;   
         }
-        //i++; //Pour voir le nb de tours de boucle
     }
 
 }
@@ -340,15 +321,6 @@ void decryptAssoc(sequence* Input, sequence* Output, int LMAX){
             if (indice == 0){ //arrengement de c en prenant le caractère juste devant dans la seqence et si c'est 0 on prend le dernier
                 echange_seq(&assoc, indice, assoc.longueur - 1);
                 c = assoc.tab[indice];
-                //placement de c au debut de la sequence
-                /*
-                decal_vers_droite(&deja_rencontrer, 1);
-                deja_rencontrer.tab[0] = deja_rencontrer.tab[deja_rencontrer.longueur -1];
-                deja_rencontrer.longueur--;
-                decal_vers_droite(&assoc, 1);
-                assoc.tab[0] = assoc.tab[assoc.longueur - 1];
-                assoc.longueur--; 
-                */
             }
             else{
                 echange_seq(&assoc, indice, indice - 1);
@@ -403,40 +375,3 @@ void decryptAssoc(sequence* Input, sequence* Output, int LMAX){
     free(assoc.tab);
 }
 
-
-//il fuat faire un algo en n^2 ou peut etre n^3 mais j'y arrive pas.
-void decrypte_OneMillion(sequence* txt, sequence* enc){ //uniquement pour OneMillion pour faire juste 100 tours de boucle
-    txt->longueur=0;
-    while (enc->longueur != 0){
-        //initialisation de x et c comme dans l'enonce
-        char c = enc->tab[enc->longueur-1];
-        int x = c % 8;
-    
-        printf("%d---TXT :", txt->longueur);
-        affiche(txt);
-        printf("%d----ENC : ", enc->longueur);
-        affiche(enc);
-        printf("C : %c\n\n", c);
-    
-        if (txt->longueur > 0){
-            if (txt->longueur < x){
-                decal_vers_droite(txt, 1);
-            }
-            else{
-                for (int i = 0 ; i <= txt->longueur - 1 - x ; i++){
-                    txt->tab[txt->longueur] = txt->tab[i];
-                    txt->longueur++;
-                }
-                decal_vers_gauche(txt, x+1);
-            }
-            txt->tab[0] = c;
-            enc->longueur--;
-        }
-        else{
-        txt->tab[0] = c;
-        txt->longueur++;
-        enc->longueur--;   
-        }
-    }
-
-}
