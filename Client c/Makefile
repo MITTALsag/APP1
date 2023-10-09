@@ -8,8 +8,6 @@ test: test
 
 test : test.o encrypte_decrypte.o liste_chaine.o
 
-client-test : client-test.o client.o decalage_de_cesar.o encrypte_decrypte.o
-
 client-interactif: client-interactif.o client.o
 
 client-tutoriel: client-tutoriel.o client.o
