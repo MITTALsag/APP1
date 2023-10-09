@@ -123,7 +123,7 @@ void decrypte(sequence* txt, sequence* enc){
             else{
                 decal_vers_droite(txt, x+1);
                 for (int i = 1 ; i < x+1 ; i++){
-                    txt->tab[i] = txt->tab[txt->longueur - (x+1) +i];
+                    txt->tab[i] = txt->tab[txt->longueur - (x+1) + i];
                 }
                 txt->longueur -=x;
             }
@@ -131,9 +131,9 @@ void decrypte(sequence* txt, sequence* enc){
             enc->longueur--;
         }
         else{
-        txt->tab[0] = c;
-        txt->longueur++;
-        enc->longueur--;   
+            txt->tab[0] = c;
+            txt->longueur++;
+            enc->longueur--;   
         }
         //i++; //Pour voir le nb de tours de boucle
     }

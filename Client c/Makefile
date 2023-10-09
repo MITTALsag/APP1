@@ -6,7 +6,7 @@ EXEC=client-introduction client-tutoriel client-interactif client-TUTORIEL2 clie
 all: $(EXEC)
 test: test
 
-test : test.o encrypte_decrypte.o
+test : test.o encrypte_decrypte.o liste_chaine.o
 
 client-test : client-test.o client.o decalage_de_cesar.o encrypte_decrypte.o
 
@@ -22,7 +22,7 @@ client-projetX : client-projetX.o client.o decalage_de_cesar.o
 
 client-planB : client-planB.o client.o decalage_de_cesar.o
 
-client-OneMillion : client-OneMillion.o client.o decalage_de_cesar.o encrypte_decrypte.o
+client-OneMillion : client-OneMillion.o client.o decalage_de_cesar.o encrypte_decrypte.o liste_chaine.o
 
 client-crypteMove : client-crypteMove.o client.o encrypte_decrypte.o
 
@@ -39,6 +39,8 @@ client.o: client.c client.h
 decalage_de_cesar.o: decalage_de_cesar.c decalage_de_cesar.h
 
 encrypte_decrypte.o : encrypte_decrypte.c encrypte_decrypte.h 
+
+liste_chaine.o : liste_chaine.c liste_chaine.h
 
 
 clean:
